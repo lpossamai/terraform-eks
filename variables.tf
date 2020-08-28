@@ -90,6 +90,9 @@ variable "nodes_key_name" {
   description = "SSH Key to use for nodes"
 }
 
+variable "source_security_group_ids" {
+  description = "Security Group ID which allows access to the Cluster SSH"
+}
 
 variable "nodes_additional_security_group_ids" {
   description = "additional security groups ids to attach to nodes"
