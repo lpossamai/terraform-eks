@@ -231,7 +231,7 @@ module "eks" {
       )
 
       key_name = var.allow_ssh ? var.nodes_key_name : null
-      source_security_group_ids = var.nodes_source_security_groups_ids
+      source_security_group_ids = var.nodes_source_security_group_ids
     }
   ]
 

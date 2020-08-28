@@ -92,6 +92,7 @@ variable "nodes_key_name" {
 
 variable "nodes_source_security_group_ids" {
   description = "Security Group ID which allows access to the Cluster SSH"
+  default = []
 }
 
 variable "nodes_additional_security_group_ids" {
