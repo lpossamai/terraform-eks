@@ -124,35 +124,3 @@ spec:
             path: Corefile
           name: coredns
         name: config-volume
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  annotations: {}
-  name: external-dns
-  namespace: kube-system
-spec:
-  selector:
-    matchLabels:
-      app: external-dns
-  strategy:
-    type: Recreate
-  template:
-    metadata:
-      labels:
-        app: external-dns
-      annotations:
-        cni: "${cni}"
-    spec:
-      containers:
-      - args:
-        - "--source=service"
-        - "--source=ingress"
-        - "--domain-filter=sparkneurotest.com"
-        - "--provider=aws"
-        - "--policy=upsert-only"
-        - "--registry=txt"
-        - "--txt-owner-id=my-identifier"
-        image: asia.gcr.io/k8s-artifacts-prod/external-dns/external-dns:v0.7.1
-        name: external-dns
-      serviceAccountName: external-dns
