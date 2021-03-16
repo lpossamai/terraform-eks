@@ -7,7 +7,7 @@ data "kubectl_path_documents" "alb_ingress_controller_role_resources" {
 data "kubectl_path_documents" "alb_ingress_controller_resources" {
   pattern = "${path.module}/cluster_configs/alb-ingress-controller.tpl.yaml"
   vars = {
-    cluster_name = var.environment
+    cluster_name = var.name
     alb_prefix   = var.alb_prefix
     alb_image    = var.alb_ingress_controller_image
   }
