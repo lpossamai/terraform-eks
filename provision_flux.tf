@@ -1,9 +1,8 @@
 data "kubectl_path_documents" "flux_resources" {
-  pattern = "${path.module}/cluster_configs/flux.tpl.yaml"
+  pattern = "${path.module}/cluster_configs/fluxcd.tpl.yaml"
   vars = {
     flux_git_user            = var.flux_git_user
-    #flux_git_url             = var.flux_git_url
-    flux_git_url             = null
+    flux_git_url             = var.flux_git_url
     flux_git_path            = var.flux_git_path
     flux_git_branch          = var.flux_git_branch
     flux_manifest_generation = var.flux_manifest_generation ? "true" : "false"

@@ -1,4 +1,9 @@
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: flux
+---
+apiVersion: v1
 kind: ServiceAccount
 metadata:
   labels:
@@ -83,12 +88,11 @@ spec:
         - --memcached-hostname=memcached.flux
         - --memcached-service=
         - --ssh-keygen-dir=/var/fluxd/keygen
-        - --git-branch=${flux_git_branch}
-        - --git-path=${flux_git_path}
+        - --git-branch=master
+        - --git-path=namespaces,workloads
         - --git-user=${flux_git_user}
         - --git-email=${flux_git_user}@users.noreply.github.com
         - --git-url=${flux_git_url}
-        - --manifest-generation=${flux_manifest_generation}
         image: docker.io/fluxcd/flux:1.21.2
         imagePullPolicy: IfNotPresent
         livenessProbe:
