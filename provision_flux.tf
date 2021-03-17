@@ -2,7 +2,8 @@ data "kubectl_path_documents" "flux_resources" {
   pattern = "${path.module}/cluster_configs/fluxcd.tpl.yaml"
   vars = {
     flux_git_user            = var.flux_git_user
-    flux_git_url             = var.flux_git_url
+    # Had to remove this, was getting a funny error. flux.tpl.yaml is the original YAML file
+    #flux_git_url             = var.flux_git_url
     flux_git_path            = var.flux_git_path
     flux_git_branch          = var.flux_git_branch
     flux_manifest_generation = var.flux_manifest_generation ? "true" : "false"
